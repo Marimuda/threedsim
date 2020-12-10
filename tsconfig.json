@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "noResolve": false,
-    "noImplicitAny": false,
-    "sourceMap": true,
+    "module": "esNext",
+    "target": "es5",
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "skipLibCheck": true,
     "preserveConstEnums": true,
-    "lib": [
-      "dom",
-      "es6"
-    ],
+    "sourceMap": true,
     "rootDir": "src"
   }
 }
