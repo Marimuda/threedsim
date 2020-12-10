@@ -1,6 +1,6 @@
 {
   "name": "threedsim",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A simple scene using Babylon.js, typescript and webpack.",
   "main": "index.ts",
   "dependencies": {
@@ -39,7 +39,7 @@
     "typescript"
   ],
   "author": {
-    "name": "Jákup O. Svøðstein",
+    "name": "JÃ¡kup O. SvÃ¸Ã°stein",
     "email": "marimuda90@gmail.com"
   },
   "license": "Apache-2.0"
