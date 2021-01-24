@@ -11,7 +11,7 @@ export interface CreateSceneModule {
 }
 
 export const getSceneModuleWithName = (
-    name = 'loadModelAndEnv'
+    name = 'sandbox'
 ): Promise<CreateSceneClass> => {
     return import('./scenes/' + name).then((module: CreateSceneModule)=> {
         return module.default;
