@@ -5,7 +5,7 @@ const fs = require('fs');
 
 // App directory
 const appDirectory = fs.realpathSync(process.cwd());
- 
+
 module.exports = merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',

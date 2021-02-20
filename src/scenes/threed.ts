@@ -63,60 +63,60 @@ export class BlenderHouseScene implements CreateSceneClass {
 
     private generateSun(scene: Scene): void
     {
-        //lights
-        // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-        const light : DirectionalLight = new DirectionalLight(config.light.sun.name,
-            new Vector3(
-                config.light.sun.direction.x,
-                config.light.sun.direction.y,
-                config.light.sun.direction.z),
-                scene);
-
-        light.position = new Vector3(
-            config.light.sun.position.x,
-            config.light.sun.position.y,
-            config.light.sun.position.z);
-
-        // Default intensity is 1. Let's dim the light a small amount
-        light.intensity =  config.light.sun.intensity;
-        light.range = config.light.sun.range;
+//        //lights
+//        // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+//        const light : DirectionalLight = new DirectionalLight(config.light.sun.name,
+//            new Vector3(
+//                config.light.sun.direction.x,
+//                config.light.sun.direction.y,
+//                config.light.sun.direction.z),
+//                scene);
+//
+//        light.position = new Vector3(
+//            config.light.sun.position.x,
+//            config.light.sun.position.y,
+//            config.light.sun.position.z);
+//
+//        // Default intensity is 1. Let's dim the light a small amount
+//        light.intensity =  config.light.sun.intensity;
+//        light.range = config.light.sun.range;
     }
 
     private generateGround(scene: Scene): void
     {
-        var ground : Mesh = Mesh.CreateGround('ground', config.groundSize, config.groundSize, 2, scene);
-
-        var groundMaterial: any = new StandardMaterial('groundMaterial', scene);
-        groundMaterial.diffuseTexture = new Texture(texture, scene);
-        //Adding some metallic glance
-        groundMaterial.specularPower = 100;
-        //u and v-scale is how many times the textrue is repeated
-        groundMaterial.diffuseTexture.uScale = config.groundSize/3;
-        groundMaterial.diffuseTexture.vScale = config.groundSize/3;
-
-        ground.material = groundMaterial;
-        ground.position = new Vector3(0,-0.1, 0);
-        ground.checkCollisions = true;
+//        var ground : Mesh = Mesh.CreateGround('ground', config.groundSize, config.groundSize, 2, scene);
+//
+//        var groundMaterial: any = new StandardMaterial('groundMaterial', scene);
+//        groundMaterial.diffuseTexture = new Texture(texture, scene);
+//        //Adding some metallic glance
+//        groundMaterial.specularPower = 100;
+//        //u and v-scale is how many times the textrue is repeated
+//        groundMaterial.diffuseTexture.uScale = config.groundSize/3;
+//        groundMaterial.diffuseTexture.vScale = config.groundSize/3;
+//
+//        ground.material = groundMaterial;
+//        ground.position = new Vector3(0,-0.1, 0);
+//        ground.checkCollisions = true;
     }
 
     private modifyMeshes(scene: Scene): void
     {
-        scene.meshes.forEach(function(m){
-            //Collision for everything except doors
-            if(!(m.id.startsWith(config.collsion.doorId) || m.id.startsWith(config.collsion.handleId))){
-                m.checkCollisions = true;
-            }
-
-            //Make windows transparent
-            if(m.id.startsWith(config.transparency.windowId)){
-                try {
-                    m.visibility = config.transparency.visibilityValue;
-                }
-                catch (e){
-                    console.log(m.id,e);
-                }
-            }
-        });
+//        scene.meshes.forEach(function(m){
+//            //Collision for everything except doors
+//            if(!(m.id.startsWith(config.collsion.doorId) || m.id.startsWith(config.collsion.handleId))){
+//                m.checkCollisions = true;
+//            }
+//
+//            //Make windows transparent
+//            if(m.id.startsWith(config.transparency.windowId)){
+//                try {
+//                    m.visibility = config.transparency.visibilityValue;
+//                }
+//                catch (e){
+//                    console.log(m.id,e);
+//                }
+//            }
+//        });
     }
 
     private activateCamera(canvas: HTMLCanvasElement, scene: Scene, camera: UniversalCamera): void
@@ -131,18 +131,18 @@ export class BlenderHouseScene implements CreateSceneClass {
         camera.ellipsoid = cameraCollision;
         camera.checkCollisions = true;
         camera.speed = cameraSpeed;
-
-        var spawnlocation = scene.getMeshByName(config.camera.spawn.Location);
-        if (spawnlocation != null)
-        {
-            camera.position = spawnlocation.absolutePosition;
-        }
-        else
-        {
-            camera.position.y = config.camera.spawn.y;
-            camera.position.z = config.camera.spawn.z;
-            camera.position.x = config.camera.spawn.x;
-        }
+//
+        //var spawnlocation = scene.getMeshByName(config.camera.spawn.Location);
+        //if (spawnlocation != null)
+        //{
+        //    camera.position = spawnlocation.absolutePosition;
+        //}
+        //else
+        //{
+        ////    camera.position.y = config.camera.spawn.y;
+        ////    camera.position.z = config.camera.spawn.z;
+        ////    camera.position.x = config.camera.spawn.x;
+        //}
     }
 
     private renderPipeline(scene: Scene, camera: UniversalCamera): DefaultRenderingPipeline
